@@ -8,6 +8,15 @@ Version 2.8.0 of Apache Kafka can be downloaded from this link:
 https://archive.apache.org/dist/kafka/2.8.0/kafka_2.12-2.8.0.tgz
 
 
+Useful note: this is the command to kill a process that runs in a given port
+(in Ubuntu).
+
+```
+
+sudo kill -9 `sudo lsof -t -i:9001`
+
+```
+
 ---------------------------------------------------------------------
 
 *2.- Execute Zookeeper*
@@ -87,3 +96,13 @@ called topic-example using this command:
 ```
 ---------------------------------------------------------------------
 
+*8.- Listing topics*
+
+Command to list all the topics available:
+
+```
+./kafka-topics.sh --zookeeper localhost:2181 --list
+
+```
+
+---------------------------------------------------------------------
