@@ -1,9 +1,9 @@
-RUNNNING KAFKA
+RUNNNING APACHE KAFKA
 ---------------------------------------------------------------------
 
 *1.- Download Apache Kafka*
 
-Version 2.8.0 of Apache Kafka was downloaded from this link:
+Version 2.8.0 of Apache Kafka can be downloaded from this link:
 
 https://archive.apache.org/dist/kafka/2.8.0/kafka_2.12-2.8.0.tgz
 
@@ -12,12 +12,20 @@ https://archive.apache.org/dist/kafka/2.8.0/kafka_2.12-2.8.0.tgz
 
 *2.- Execute Zookeeper*
 
-Once the previous file was downloaded and extracted, we have to navigate 
+Once the previous file is downloaded and extracted, we have to navigate 
 to the bin directory and execute this command to run Zookeeper:
 
 ```
 
 ./zookeeper-server-start.sh ../config/zookeeper.properties
+
+```
+
+Zookeeper runs in port 2181:
+
+```
+
+INFO binding to port 0.0.0.0/0.0.0.0:2181 (org.apache.zookeeper.server.NIOServerCnxnFactory)
 
 ```
 
@@ -39,7 +47,8 @@ auto.create.topics.enable=false
 
 *4.- Run Kafka Broker*
 
-Once again from the bin directory, we can run the Kafka Broker with this command:
+Once again, we go to the bin directory, 
+where we can run the Kafka Broker with this command:
 
 ```
 
@@ -48,3 +57,33 @@ Once again from the bin directory, we can run the Kafka Broker with this command
 ```
 
 ---------------------------------------------------------------------
+
+*5.- Create a topic*
+
+Always inside the bin directory, we create a topic 
+called topic-example using this command:
+
+```
+./kafka-topics.sh --create --topic topic-example -zookeeper localhost:2181 --partitions 2 --replication-factor 1
+
+```
+---------------------------------------------------------------------
+
+*6.- Producing messages*
+
+```
+./kafka-console-producer.sh --broker-list localhost:9901 --topic topic-example
+
+```
+---------------------------------------------------------------------
+
+*7.- Consuming messages*
+
+```
+./kafka-console-consumer.sh --bootstrap-server localhost:9901 --topic topic-example
+
+./kafka-console-consumer.sh --bootstrap-server localhost:9901 --topic topic-example --from-beginning
+
+```
+---------------------------------------------------------------------
+
