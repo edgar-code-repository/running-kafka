@@ -1,7 +1,7 @@
 RUNNNING APACHE KAFKA
 ---------------------------------------------------------------------
 
-*1.- Download Apache Kafka*
+**1.- Download Apache Kafka**
 
 Version 2.8.0 of Apache Kafka can be downloaded from this link:
 
@@ -19,7 +19,7 @@ sudo kill -9 `sudo lsof -t -i:9001`
 
 ---------------------------------------------------------------------
 
-*2.- Execute Zookeeper*
+**2.- Execute Zookeeper**
 
 Once the previous file is downloaded and extracted, we have to navigate 
 to the bin directory and execute this command to run Zookeeper:
@@ -40,7 +40,7 @@ INFO binding to port 0.0.0.0/0.0.0.0:2181 (org.apache.zookeeper.server.NIOServer
 
 ---------------------------------------------------------------------
 
-*3.- Configure Kafka Broker*
+**3.- Configure Kafka Broker**
 
 Then, we have go to the config directory where we have to add 
 these properties to the file server.properties:
@@ -54,7 +54,7 @@ auto.create.topics.enable=false
 
 ---------------------------------------------------------------------
 
-*4.- Run Kafka Broker*
+**4.- Run Kafka Broker**
 
 Once again, we go to the bin directory, 
 where we can run the Kafka Broker with this command:
@@ -67,7 +67,7 @@ where we can run the Kafka Broker with this command:
 
 ---------------------------------------------------------------------
 
-*5.- Create a topic*
+**5.- Create a topic**
 
 Always inside the bin directory, we create a topic 
 called topic-example using this command:
@@ -78,7 +78,7 @@ called topic-example using this command:
 ```
 ---------------------------------------------------------------------
 
-*6.- Producing messages*
+**6.- Producing messages**
 
 ```
 ./kafka-console-producer.sh --broker-list localhost:9901 --topic topic-example
@@ -86,7 +86,7 @@ called topic-example using this command:
 ```
 ---------------------------------------------------------------------
 
-*7.- Consuming messages*
+**7.- Consuming messages**
 
 ```
 ./kafka-console-consumer.sh --bootstrap-server localhost:9901 --topic topic-example
@@ -96,7 +96,7 @@ called topic-example using this command:
 ```
 ---------------------------------------------------------------------
 
-*8.- Listing topics*
+**8.- Listing topics**
 
 Command to list all the topics available:
 
